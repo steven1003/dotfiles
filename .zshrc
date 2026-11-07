@@ -13,6 +13,20 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 export PATH=$PATH:/home/$USER/bin:/home/steven/.local/bin
 alias vim=nvim
 
-alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
-compdef dotfiles='git'
+dotfiles() {
+  /usr/bin/git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
 
+_dotfiles() {
+  if [[ $words[2] == add && $CURRENT -ge 3 ]]; then
+    _files
+  else
+    local -x GIT_DIR="$HOME/.dotfiles"
+    local -x GIT_WORK_TREE="$HOME"
+    local service=git
+    words[1]=git
+    _git
+  fi
+}
+
+compdef _dotfiles dotfiles
