@@ -30,3 +30,5 @@ _dotfiles() {
 }
 
 compdef _dotfiles dotfiles
+
+unsetopt CORRECT CORRECT_ALL
