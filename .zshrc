@@ -10,7 +10,7 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=$PATH:/home/$USER/bin:/home/steven/.local/bin
+export PATH=$PATH:/home/$USER/bin:/home/$USER/.local/bin
 alias vim=nvim
 
 dotfiles() {
